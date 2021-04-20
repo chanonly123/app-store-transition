@@ -87,6 +87,7 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
             }, completion: nil)
 
             UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: []) {
+                self.params.from.view.alpha = 0.5
                 container.layoutIfNeeded()
             } completion: { _ in
                 transitionContext.completeTransition(true)
@@ -103,6 +104,7 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
             }, completion: nil)
             
             UIView.animate(withDuration: duration * 0.8, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: []) {
+                self.params.from.view.alpha = 1
                 container.layoutIfNeeded()
             } completion: { _ in
                 self.params.from.linkView.alpha = 1

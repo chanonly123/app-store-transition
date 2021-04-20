@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var btnDismiss: UIButton!
     @IBOutlet weak var ivLogoMain: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -59,6 +60,7 @@ extension DetailViewController: DetailController {
     
     func willStartDismiss(duration: Double) {
         UIView.animate(withDuration: duration * 0.5) {
+            self.btnDismiss.alpha = 0
             self.scrollView.contentOffset.y = 0
         }
     }

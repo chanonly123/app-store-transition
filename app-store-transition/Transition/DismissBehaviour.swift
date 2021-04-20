@@ -69,7 +69,7 @@ public class DismissBehaviour: NSObject, UIGestureRecognizerDelegate {
 
         let currentLocation = gesture.location(in: nil)
         let progress = isScreenEdgePan ? (gesture.translation(in: targetAnimatedView).x / 100) : (currentLocation.y - startingPoint.y) / 100
-        print("\(gesture.state.name)", currentLocation, progress)
+//        print("\(gesture.state.name)", currentLocation, progress)
 
         switch gesture.state {
         case .began:
