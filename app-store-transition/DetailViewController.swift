@@ -13,7 +13,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var ivLogoMain: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var ivLogoFloating: UIImageView!
     var inputImage: UIImage?
     var presenter: Presenter?
             
@@ -22,9 +21,6 @@ class DetailViewController: UIViewController {
         
         presenter?.scrollView = scrollView
         scrollView.delegate = self
-        
-        ivLogoFloating.contentMode = .scaleAspectFill
-        ivLogoFloating.image = inputImage
         
         ivLogoMain.contentMode = .scaleAspectFill
         ivLogoMain.image = inputImage
@@ -39,6 +35,9 @@ class DetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    deinit {
+        print("DEINIT", NSStringFromClass(Self.self))
+    }
 }
 
 extension DetailViewController: UIScrollViewDelegate {
@@ -52,11 +51,9 @@ extension DetailViewController: UIScrollViewDelegate {
 }
 
 extension DetailViewController: DetailController {
-    var linkView: UIView { ivLogoFloating }
+    var linkView: UIView { ivLogoMain }
     
-    func didEndTransition() {
-        ivLogoFloating.isHidden = true
-    }
+    func didEndTransition() {}
     
     func willStartDismiss(duration: Double) {
         UIView.animate(withDuration: duration * 0.5) {

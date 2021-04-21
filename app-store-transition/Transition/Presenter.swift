@@ -24,7 +24,7 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
     }
     
     var targetFrame = CGRect.zero
-    let duration: Double = 0.8
+    let duration: Double = 0.9
     let params: Params
     var isPresenting = true
     
@@ -32,6 +32,7 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
     var trailing: NSLayoutConstraint?
     var bottom: NSLayoutConstraint?
     var top: NSLayoutConstraint?
+    var blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     
     lazy var behaviour = DismissBehaviour(presenter: self)
     
@@ -87,9 +88,12 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
             }, completion: nil)
 
             UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: []) {
-                self.params.from.view.alpha = 0.5
                 container.layoutIfNeeded()
             } completion: { _ in
+                container.addSubview(self.blurView)
+                self.blurView.frame = container.bounds
+                container.sendSubviewToBack(self.blurView)
+                
                 transitionContext.completeTransition(true)
                 self.params.to.didEndTransition()
             }
@@ -104,8 +108,8 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
             }, completion: nil)
             
             UIView.animate(withDuration: duration * 0.8, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: []) {
-                self.params.from.view.alpha = 1
                 container.layoutIfNeeded()
+                self.blurView.alpha = 0
             } completion: { _ in
                 self.params.from.linkView.alpha = 1
                 self.params.to.view.removeFromSuperview()
@@ -158,5 +162,9 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
         params.from.present(params.to, animated: true, completion: {
             self.behaviour.setup()
         })
+    }
+    
+    deinit {
+        print("DEINIT", NSStringFromClass(Self.self))
     }
 }

@@ -58,15 +58,15 @@ class TableCell: UITableViewCell {
         
         selectionStyle = .none
         contentView.backgroundColor = .clear
-        contentView.layer.shadowColor = UIColor.darkGray.cgColor
-        contentView.layer.shadowRadius = 5
-        contentView.layer.shadowOpacity = 0.4
+//        contentView.layer.shadowColor = UIColor.darkGray.cgColor
+//        contentView.layer.shadowRadius = 5
+//        contentView.layer.shadowOpacity = 0.4
         
         cardView.clipsToBounds = true
         cardView.layer.cornerRadius = 16
         cardView.enableTouchFeedback(enable: true) { (down, view) in
-            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [], animations: {
-                view.transform = down ? CGAffineTransform.init(scaleX: 0.95, y: 0.95) : CGAffineTransform.identity
+            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [.allowUserInteraction], animations: {
+                view.transform = down ? CGAffineTransform.init(scaleX: 0.97, y: 0.97) : CGAffineTransform.identity
             }, completion: nil)
         }
         

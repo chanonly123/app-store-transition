@@ -140,6 +140,10 @@ public class DismissBehaviour: NSObject, UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
+    
+    deinit {
+        print("DEINIT", NSStringFromClass(Self.self))
+    }
 }
 
 extension UIGestureRecognizer.State {
