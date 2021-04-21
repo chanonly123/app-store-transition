@@ -79,7 +79,6 @@
 				173A0FE9262ED8370016034D /* Transition */,
 				173A0FD7262ED0CE0016034D /* images */,
 				173A0FBD262ECE6C0016034D /* AppDelegate.swift */,
-				173A0FEE262EFEDA0016034D /* UIViewTouchFeedback.swift */,
 				173A0FBF262ECE6C0016034D /* SceneDelegate.swift */,
 				173A0FC1262ECE6C0016034D /* HomeViewController.swift */,
 				173A0FD3262ECF6D0016034D /* DetailViewController.swift */,
@@ -109,6 +108,7 @@
 			children = (
 				173A0FEA262ED84B0016034D /* Presenter.swift */,
 				1709DF0B262F0712006721E0 /* DismissBehaviour.swift */,
+				173A0FEE262EFEDA0016034D /* UIViewTouchFeedback.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";

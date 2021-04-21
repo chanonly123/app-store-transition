@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeController {
+class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var items = ["ic_image1.jpg", "ic_image2.jpg", "ic_image3.jpg", "ic_image4.jpg", "ic_image5.jpg", "ic_image6.jpg"]
@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, HomeController {
     }
     
     var sharedView: UIView!
-    var linkView: UIView { sharedView }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -71,5 +70,22 @@ class TableCell: UITableViewCell {
         }
         
         ivLogo.contentMode = .scaleAspectFill
+    }
+}
+
+extension HomeViewController: HomeController {
+    
+    var linkView: UIView { sharedView }
+    
+    func willStartTransition() {
+        
+    }
+    
+    func willEndTransition() {
+        
+    }
+    
+    func didEndTransition() {
+        
     }
 }

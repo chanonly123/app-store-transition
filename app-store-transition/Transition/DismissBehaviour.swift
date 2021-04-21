@@ -12,16 +12,16 @@ import UIKit
 public class DismissBehaviour: NSObject, UIGestureRecognizerDelegate {
     var draggingDownToDismiss = false
 
-    final class DismissalPanGesture: UIPanGestureRecognizer {}
-    final class DismissalScreenEdgePanGesture: UIScreenEdgePanGestureRecognizer {}
+    public final class DismissalPanGesture: UIPanGestureRecognizer {}
+    public final class DismissalScreenEdgePanGesture: UIScreenEdgePanGestureRecognizer {}
 
-    lazy var dismissalPanGesture: DismissalPanGesture = {
+    public lazy var dismissalPanGesture: DismissalPanGesture = {
         let pan = DismissalPanGesture()
         pan.maximumNumberOfTouches = 1
         return pan
     }()
 
-    lazy var dismissalScreenEdgePanGesture: DismissalScreenEdgePanGesture = {
+    public lazy var dismissalScreenEdgePanGesture: DismissalScreenEdgePanGesture = {
         let pan = DismissalScreenEdgePanGesture()
         pan.edges = .left
         return pan
