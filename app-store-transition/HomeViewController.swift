@@ -21,7 +21,12 @@ class HomeViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        CardView.applyShadow(view: tableView)
     }
+    
+    override var prefersStatusBarHidden: Bool { false }
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation { .slide }
     
     var sharedView: UIView!
 }
@@ -33,7 +38,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as! TableCell
-        cell.ivLogo.image = UIImage(named: items[indexPath.row])
+        cell.cardView.ivLogo.image = UIImage(named: items[indexPath.row])
         return cell
     }
     
@@ -41,51 +46,68 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath) as! TableCell
         sharedView = cell.cardView
         let viewc = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
-        viewc.inputImage = cell.ivLogo.image
+        viewc.inputImage = cell.cardView.ivLogo.image
         presenter = Presenter(params: .init(from: self, to: viewc))
+        presenter.configTransitionContext = {
+            CardView.applyShadow(view: $0)
+        }
         viewc.presenter = presenter
         presenter.present()
     }
 }
 
 class TableCell: UITableViewCell {
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var ivLogo: UIImageView!
+    let cardView = CardView.loadXib()
+    let gap: CGFloat = 25
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         selectionStyle = .none
+        backgroundColor = .clear
         contentView.backgroundColor = .clear
-//        contentView.layer.shadowColor = UIColor.darkGray.cgColor
-//        contentView.layer.shadowRadius = 5
-//        contentView.layer.shadowOpacity = 0.4
         
-        cardView.clipsToBounds = true
-        cardView.layer.cornerRadius = 16
-        cardView.enableTouchFeedback(enable: true) { (down, view) in
-            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [.allowUserInteraction], animations: {
-                view.transform = down ? CGAffineTransform.init(scaleX: 0.97, y: 0.97) : CGAffineTransform.identity
+        contentView.addSubview(cardView)
+        cardView.addPinConstraints(top: gap / 2, left: gap, bottom: gap / 2, right: gap)
+        cardView.layer.cornerRadius = gap
+        
+        cardView.enableTouchFeedback(enable: true) { down, view in
+            UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [.allowUserInteraction], animations: {
+                view.transform = down ? CGAffineTransform(scaleX: 0.96, y: 0.96) : CGAffineTransform.identity
             }, completion: nil)
         }
-        
-        ivLogo.contentMode = .scaleAspectFill
     }
 }
 
 extension HomeViewController: HomeController {
-    
     var linkView: UIView { sharedView }
     
-    func willStartTransition() {
-        
+    func willStartTransition() {}
+    
+    func willEndTransition() {}
+    
+    func didEndTransition() {}
+}
+
+public extension UIView {
+    func addPinConstraints(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil) {
+        guard let parent = superview else { return }
+        translatesAutoresizingMaskIntoConstraints = false
+        if let left = left {
+            leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: left).isActive = true
+        }
+        if let right = right {
+            trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -right).isActive = true
+        }
+        if let top = top {
+            topAnchor.constraint(equalTo: parent.topAnchor, constant: top).isActive = true
+        }
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -bottom).isActive = true
+        }
     }
     
-    func willEndTransition() {
-        
-    }
-    
-    func didEndTransition() {
-        
+    func addRatioConstraints(ratio: CGFloat) {
+        widthAnchor.constraint(equalTo: heightAnchor, multiplier: ratio, constant: 0).isActive = true
     }
 }

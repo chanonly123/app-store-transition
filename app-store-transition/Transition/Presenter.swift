@@ -15,7 +15,6 @@ public protocol HomeController: UIViewController {
 }
 
 public protocol DetailController: UIViewController {
-    var linkView: UIView { get }
     func willStartDismiss(duration: Double)
     func didEndTransition()
 }
@@ -101,7 +100,10 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
                 self.params.to.view.layer.cornerRadius = 0
             }, completion: nil)
 
-            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: []) {
+            let dur = duration - Double(targetFrame.origin.y / container.bounds.height) * 0.2
+            let damping = 0.55 + targetFrame.origin.y * 0.0002
+            print(dur, damping)
+            UIView.animate(withDuration: dur, delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: 0.1, options: []) {
                 container.layoutIfNeeded()
             } completion: { _ in
                 container.addSubview(self.blurView)

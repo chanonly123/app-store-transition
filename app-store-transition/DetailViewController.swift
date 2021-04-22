@@ -10,8 +10,10 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var btnDismiss: UIButton!
-    @IBOutlet weak var ivLogoMain: UIImageView!
+    @IBOutlet weak var cardContainerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    let cardView = CardView.loadXib()
     
     var inputImage: UIImage?
     var presenter: Presenter?
@@ -21,9 +23,10 @@ class DetailViewController: UIViewController {
         
         presenter?.scrollView = scrollView
         scrollView.delegate = self
+        cardContainerView.addSubview(cardView)
+        cardView.addPinConstraints(top: 0, left: 0, bottom: 0, right: 0)
         
-        ivLogoMain.contentMode = .scaleAspectFill
-        ivLogoMain.image = inputImage
+        cardView.ivLogo.image = inputImage
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,6 +37,9 @@ class DetailViewController: UIViewController {
     @IBAction func actionDismiss() {
         dismiss(animated: true, completion: nil)
     }
+    
+    override var prefersStatusBarHidden: Bool { true }
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation { .slide }
 
     deinit {
         print("DEINIT", NSStringFromClass(Self.self))
@@ -51,7 +57,6 @@ extension DetailViewController: UIScrollViewDelegate {
 }
 
 extension DetailViewController: DetailController {
-    var linkView: UIView { ivLogoMain }
     
     func didEndTransition() {}
     
@@ -59,6 +64,7 @@ extension DetailViewController: DetailController {
         UIView.animate(withDuration: duration * 0.5) {
             self.btnDismiss.alpha = 0
             self.scrollView.contentOffset.y = 0
+            self.cardView.labelContainerTopSafeArea.isActive = false
         }
     }
 }

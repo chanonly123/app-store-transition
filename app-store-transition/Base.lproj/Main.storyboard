@@ -26,37 +26,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9hq-qi-JHs" id="yzU-bP-2Hx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="603"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvG-3n-z1k">
-                                                    <rect key="frame" x="16" y="16" width="382" height="571"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F84-rz-RSv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="509.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="F84-rz-RSv" secondAttribute="height" multiplier="3:4" id="jWb-JM-Ueb"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstItem="F84-rz-RSv" firstAttribute="leading" secondItem="KvG-3n-z1k" secondAttribute="leading" id="3Kg-UE-EBh"/>
-                                                        <constraint firstItem="F84-rz-RSv" firstAttribute="top" secondItem="KvG-3n-z1k" secondAttribute="top" id="7Gp-dQ-COm"/>
-                                                        <constraint firstAttribute="trailing" secondItem="F84-rz-RSv" secondAttribute="trailing" id="8QN-sI-Q8o"/>
-                                                        <constraint firstAttribute="bottom" secondItem="F84-rz-RSv" secondAttribute="bottom" priority="999" id="wAW-f7-XWW"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="KvG-3n-z1k" firstAttribute="leading" secondItem="yzU-bP-2Hx" secondAttribute="leading" constant="16" id="Bge-GZ-OHr"/>
-                                                <constraint firstItem="KvG-3n-z1k" firstAttribute="top" secondItem="yzU-bP-2Hx" secondAttribute="top" constant="16" id="YWk-Ha-UQV"/>
-                                                <constraint firstAttribute="bottom" secondItem="KvG-3n-z1k" secondAttribute="bottom" constant="16" id="c7g-EA-HhX"/>
-                                                <constraint firstAttribute="trailing" secondItem="KvG-3n-z1k" secondAttribute="trailing" constant="16" id="vHb-KY-nKl"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="cardView" destination="KvG-3n-z1k" id="MjZ-iP-Auq"/>
-                                            <outlet property="ivLogo" destination="F84-rz-RSv" id="Mov-ew-MHS"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -92,12 +62,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="48p-G1-M1l">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1968"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7fn-4A-Qea">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feN-WV-jgT">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="552"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="7fn-4A-Qea" secondAttribute="height" multiplier="3:4" id="eyM-5l-A0A"/>
+                                                    <constraint firstAttribute="height" priority="1" constant="500" id="Vhn-mn-Es2"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZN-aw-tSU">
                                                 <rect key="frame" x="0.0" y="552" width="414" height="1416"/>
                                                 <subviews>
@@ -162,11 +133,11 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVm-mX-dcy">
-                                <rect key="frame" x="348" y="60" width="50" height="50"/>
+                                <rect key="frame" x="354" y="20" width="40" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GVm-mX-dcy" secondAttribute="height" id="fk4-re-cAQ"/>
-                                    <constraint firstAttribute="height" constant="50" id="wXO-UT-MSP"/>
+                                    <constraint firstAttribute="height" constant="40" id="wXO-UT-MSP"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="multiply.circle" catalog="system"/>
@@ -184,16 +155,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="drT-IS-bMD" firstAttribute="leading" secondItem="OyZ-MS-nRc" secondAttribute="leading" id="Bxn-p3-whr"/>
-                            <constraint firstItem="GVm-mX-dcy" firstAttribute="top" secondItem="OyZ-MS-nRc" secondAttribute="top" constant="16" id="V9A-Oh-G2R"/>
+                            <constraint firstItem="OyZ-MS-nRc" firstAttribute="trailing" secondItem="GVm-mX-dcy" secondAttribute="trailing" constant="20" id="HTC-rE-0F6"/>
+                            <constraint firstItem="GVm-mX-dcy" firstAttribute="top" secondItem="Aiw-W9-utg" secondAttribute="top" constant="20" id="RJh-e1-Fq4"/>
                             <constraint firstItem="drT-IS-bMD" firstAttribute="top" secondItem="Aiw-W9-utg" secondAttribute="top" id="cmO-ae-bhF"/>
                             <constraint firstItem="drT-IS-bMD" firstAttribute="trailing" secondItem="OyZ-MS-nRc" secondAttribute="trailing" id="doa-rl-hYK"/>
-                            <constraint firstItem="OyZ-MS-nRc" firstAttribute="trailing" secondItem="GVm-mX-dcy" secondAttribute="trailing" constant="16" id="yxF-aZ-TpS"/>
                             <constraint firstAttribute="bottom" secondItem="drT-IS-bMD" secondAttribute="bottom" id="yyz-bG-Z5Z"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnDismiss" destination="GVm-mX-dcy" id="1MN-3E-v8x"/>
-                        <outlet property="ivLogoMain" destination="7fn-4A-Qea" id="aCF-Sq-WdM"/>
+                        <outlet property="cardContainerView" destination="feN-WV-jgT" id="ccI-bU-Hzl"/>
                         <outlet property="scrollView" destination="drT-IS-bMD" id="3ON-xb-vHV"/>
                     </connections>
                 </viewController>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17090241263156A400832531 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17090240263156A400832531 /* CardView.xib */; };
+		170902442631586300832531 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170902432631586300832531 /* CardView.swift */; };
 		1709DF0C262F0712006721E0 /* DismissBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709DF0B262F0712006721E0 /* DismissBehaviour.swift */; };
 		173A0FBE262ECE6C0016034D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A0FBD262ECE6C0016034D /* AppDelegate.swift */; };
 		173A0FC0262ECE6C0016034D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A0FBF262ECE6C0016034D /* SceneDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17090240263156A400832531 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		170902432631586300832531 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1709DF0B262F0712006721E0 /* DismissBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissBehaviour.swift; sourceTree = "<group>"; };
 		173A0FBA262ECE6C0016034D /* app-store-transition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "app-store-transition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		173A0FBD262ECE6C0016034D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				173A0FC6262ECE6D0016034D /* Assets.xcassets */,
 				173A0FC8262ECE6D0016034D /* LaunchScreen.storyboard */,
 				173A0FCB262ECE6D0016034D /* Info.plist */,
+				17090240263156A400832531 /* CardView.xib */,
+				170902432631586300832531 /* CardView.swift */,
 			);
 			path = "app-store-transition";
 			sourceTree = "<group>";
@@ -175,6 +181,7 @@
 				173A0FE0262ED0D60016034D /* ic_image6.jpg in Resources */,
 				173A0FE3262ED0D60016034D /* ic_image1.jpg in Resources */,
 				173A0FE2262ED0D60016034D /* ic_image3.jpg in Resources */,
+				17090241263156A400832531 /* CardView.xib in Resources */,
 				173A0FE4262ED0D60016034D /* ic_image4.jpg in Resources */,
 				173A0FE1262ED0D60016034D /* ic_image5.jpg in Resources */,
 				173A0FC7262ECE6D0016034D /* Assets.xcassets in Resources */,
@@ -194,6 +201,7 @@
 				1709DF0C262F0712006721E0 /* DismissBehaviour.swift in Sources */,
 				173A0FC0262ECE6C0016034D /* SceneDelegate.swift in Sources */,
 				173A0FEF262EFEDA0016034D /* UIViewTouchFeedback.swift in Sources */,
+				170902442631586300832531 /* CardView.swift in Sources */,
 				173A0FD4262ECF6D0016034D /* DetailViewController.swift in Sources */,
 				173A0FEB262ED84B0016034D /* Presenter.swift in Sources */,
 			);
