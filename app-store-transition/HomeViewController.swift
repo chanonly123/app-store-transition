@@ -10,12 +10,14 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var items = ["ic_image1.jpg", "ic_image2.jpg", "ic_image3.jpg", "ic_image4.jpg", "ic_image5.jpg", "ic_image6.jpg"]
+    var items = ["ic_image1.jpg", "ic_image2.jpg", "ic_image3.jpg", "ic_image4.jpg", "ic_image5.jpg", "ic_image6.jpg", "ic_image7.jpg"]
     
     var presenter: Presenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        items.shuffle()
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none

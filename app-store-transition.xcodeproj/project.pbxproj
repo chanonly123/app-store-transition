@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17090241263156A400832531 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17090240263156A400832531 /* CardView.xib */; };
 		170902442631586300832531 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170902432631586300832531 /* CardView.swift */; };
+		170902482631712300832531 /* ic_image7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 170902472631712300832531 /* ic_image7.jpg */; };
 		1709DF0C262F0712006721E0 /* DismissBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709DF0B262F0712006721E0 /* DismissBehaviour.swift */; };
 		173A0FBE262ECE6C0016034D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A0FBD262ECE6C0016034D /* AppDelegate.swift */; };
 		173A0FC0262ECE6C0016034D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A0FBF262ECE6C0016034D /* SceneDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		17090240263156A400832531 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		170902432631586300832531 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		170902472631712300832531 /* ic_image7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ic_image7.jpg; sourceTree = "<group>"; };
 		1709DF0B262F0712006721E0 /* DismissBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissBehaviour.swift; sourceTree = "<group>"; };
 		173A0FBA262ECE6C0016034D /* app-store-transition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "app-store-transition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		173A0FBD262ECE6C0016034D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				173A0FDD262ED0D60016034D /* ic_image4.jpg */,
 				173A0FDA262ED0D60016034D /* ic_image5.jpg */,
 				173A0FD9262ED0D60016034D /* ic_image6.jpg */,
+				170902472631712300832531 /* ic_image7.jpg */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				173A0FDF262ED0D60016034D /* ic_image2.jpg in Resources */,
+				170902482631712300832531 /* ic_image7.jpg in Resources */,
 				173A0FCA262ECE6D0016034D /* LaunchScreen.storyboard in Resources */,
 				173A0FE0262ED0D60016034D /* ic_image6.jpg in Resources */,
 				173A0FE3262ED0D60016034D /* ic_image1.jpg in Resources */,
