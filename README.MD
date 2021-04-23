@@ -1,5 +1,5 @@
 # App store transition
-Most simple recreation of app store custom transition
+Almost similar app store transition.
 <br/>
 
 # Demo
@@ -19,14 +19,7 @@ Transition/UIViewTouchFeedback.swift
 
 ```
 extension HomeViewController: HomeController {
-    
     var linkView: UIView { sharedView }
-    
-    func willStartTransition() {}
-    
-    func willEndTransition() {}
-    
-    func didEndTransition() {}
 }
 ```
 
@@ -34,11 +27,7 @@ extension HomeViewController: HomeController {
 
 ```
 extension DetailViewController: DetailController {
-    var linkView: UIView { ivLogoMain }
-    
-    func didEndTransition() {}
-    
-    func willStartDismiss(duration: Double) {}
+
 }
 ```
 ## Step 4: create `Presenter` and hold strong

@@ -14,9 +14,20 @@ public protocol HomeController: UIViewController {
     func didEndTransition()
 }
 
+public extension HomeController {
+    func willStartTransition() {}
+    func willEndTransition() {}
+    func didEndTransition() {}
+}
+
 public protocol DetailController: UIViewController {
     func willStartDismiss(duration: Double)
     func didEndTransition()
+}
+
+public extension DetailController {
+    func willStartDismiss(duration: Double) {}
+    func didEndTransition() {}
 }
 
 public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
@@ -103,7 +114,7 @@ public class Presenter: NSObject, UIViewControllerAnimatedTransitioning, UIViewC
             let dur = duration - Double(targetFrame.origin.y / container.bounds.height) * 0.2
             let damping = 0.55 + targetFrame.origin.y * 0.0002
             print(dur, damping)
-            UIView.animate(withDuration: dur, delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: 0.1, options: []) {
+            UIView.animate(withDuration: dur, delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: 0.0, options: []) {
                 container.layoutIfNeeded()
             } completion: { _ in
                 container.addSubview(self.blurView)
