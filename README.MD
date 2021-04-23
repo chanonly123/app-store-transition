@@ -3,7 +3,7 @@ Almost similar app store transition.
 <br/>
 
 # Demo
-![alt tag](https://github.com/chanonly123/app-store-transition/raw/master/demo2.gif)
+![alt tag](https://github.com/chanonly123/app-store-transition/raw/master/demo3.gif)
 <br/>
 
 # Usage
